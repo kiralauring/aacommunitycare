@@ -1,0 +1,164 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kira's Final Project</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>
+        Lets make some goals and hopes for ourselves and our Asian American communities and families! &#9728;
+      </h1>
+    </header>
+    
+    <p class="bold">
+      This is a community brainstorm, so contribute or browse with respect!
+    </p>
+    
+    <main>
+      <p class="bold">Oh hi,</p>
+      <p>Filial debt puts a lot of pressure on us to perform in capitalism and racist + ableist structures 
+        that are not good for us! What are some hopes and dreams you have for yourself and your Asian American family, communities, and friends?
+      </p>
+    <!-- What we've done so far: changed the form below to have action="/dreams" method="POST"
+    <!-- Cool. I think I understand        -->
+    <!-- Here's what we're going to do. We'll make 5 forms in this HTML page.       -->
+    <!-- Then we'll add 5 routes to the server.js        -->
+    <!-- Then we'll add functionality to client.js for each one -->
+    
+      <!-- How many forms do you need working for this application?     -->
+      <!--I am thinking maybe 5-6. They are all verbal prompts for like goals or personal intentions so I want to have a bunch of different ones,
+      where you can see what people submitted as well as your own thoughts. Thank you so much for taking the time to walk me through this!!
+      Yes! I want there to be a list right after each prompt with the answers. Basically, similar functionality to the default glitch 
+      What are your dreams app, just a bunch of submit forms
+      Great!!-->
+    <!-- In order: dreams, acc, good, quest, values -->  
+      <!-- So should I make a similar form to this one below for each?--> 
+    <!-- Yes. I'll do acc, then you do good. Sound good?  YEp!-->
+      
+      
+      <!-- Dreams successfully posts, but none of the others do...-->
+      <!-- I see that. Let's start trying to sort out why. With web-apps, HTML is important since it's basically the interface        -->
+      
+      <!-- Also it is interesting, when I refresh the page for this app the submission doesn't save, but when I use the default
+           glitch node app dreams form they save.
+      -->
+    <!-- It's weird, it's like the post submit to /dreams isn't hitting the preventDefault in the client.js funciton for it       -->
+    <!-- In the upper right by your profile pic, when you drop down, is the box checked for "Refresh on app changes"        -->
+    <!-- May be a good idea to have that unchecked while we're typing in multiple files        --> 
+      <!-- got it. i commented on a line in client.js that was different for dream...not really sure what it is doing/if it is relevant-->
+      <!-- we'll need to refresh the page to check stuff, but it's probably better that way for now            -->
+      <!-- I'm going to check on the accountabilities one next        -->
+      <!-- first, to make sure the html looks good, then client.js for /accountabilities, then server.js for /accountability requests       --> 
+      <form action="/dreams" method="POST">
+        <!-- So, we'll add an id of dreamsInput to the input for dreams. Then follow the pattern for other topics          -->
+        <input type="text" id="dreamsInput" name="dreams" maxlength="100" placeholder="Dreams!">
+        <button type="submit">Submit</button>
+      </form>
+      <section class="dreams">
+        <ul id="dreams">
+        </ul>
+      </section>
+    
+      <br>
+      <p class="bold">Another thing...</p>
+      <p>Kai Cheng Thom has 2 life changing! articles about how to be face the fear of accountability for our own abusive behavior 
+        that furthers systems of harm and intergenerational violence. You can read them 
+        <a href="https://everydayfeminism.com/2016/02/be-accountable-when-abusive/"> here</a> and 
+        <a href="https://everydayfeminism.com/2016/11/indispensability-vs-disposability-culture/"> here</a> 
+        . What are some ways that you want to be accountable, and how will you do this?
+      </p>
+      <form action="/accountability" method="POST">
+        <input type="text" id="accountabilityInput" name="accountability" maxlength="100" placeholder="Listening to people!">
+        <button type="button" >Submit</button>
+      </form>
+      <section class="accountabilities">
+        <ul id="accountability">
+        </ul>
+      </section>
+    
+      <br>
+      <p class="bold">Something else!</p>
+      <p> What are some of your favorite readings/comics/movies/music/resources etc. that make you feel good?
+      </p>
+      <form action="/good" method="POST">
+        <input type="text" id="goodInput" name="good" maxlength="100" placeholder="An amazing read!">
+        <!--<button type="submit">Submit</button> -->
+        <button type="button">Submit</button>
+      </form>
+      <section class="goodthings">
+        <ul id="good">
+        </ul>
+      </section>
+      
+      <br>
+      <p class="bold">You guessed it...another prompt :)</p>
+      <p> What is something you are really want to ask/question your family about but haven't? 
+        Maybe because you think they won't listen, will get mad, or are afraid to open up, etc.
+      </p>
+      <form action="/quest" method="POST">
+        <input type="text" id="questInput" name="quest" maxlength="100" placeholder="Why...">
+        <button type="button">Submit</button>
+      </form>
+      <section class="questions">
+        <ul id="quest">
+        </ul>
+      </section>
+    
+      
+      <br>
+      <p class="bold">Similarly...</p>
+      <p> What is a piece of advice you would give your parents if they would listen? Youth deserve autonomy and respect too!
+        Tell them here what is on your mind.
+      </p>
+      <form action="/advice" method="POST">
+        <input type="text" id="adviceInput" name="advice" maxlength="100" placeholder="This would make me feel good!">
+        <button type="button">Submit</button>
+      </form>
+      <section class="advices">
+        <ul id="advice">
+        </ul>
+      </section>
+      
+      <br>
+      <p class="bold">One more! Make it count.</p>
+      <p> The form of this one is (something I'm told to value/something I wish I didn't value), (something about my self I want to value more).
+      </p>
+      <form action="/value" method="POST">
+        <input type="text" id="valueInput" name="value" maxlength="100" placeholder="Values!">
+        <button type="button">Submit</button>
+      </form>
+      <section class="values">
+        <ul id="value">
+        </ul>
+      </section>
+    </main>
+    
+    <footer>
+      <p> This is a project by Kira Lauring as part of her final for Rethinking Disability, a course taught by Lydia X. Z. Brown at Tufts University.
+        <br>Want to learn more? <a href="https://docs.google.com/presentation/d/1wyrNqb3KI1ER7esug8TdUmRnzi_-KSXlOqKFClgYJZ0/edit?usp=sharing">Here</a> is a presentation of my project!
+        <br>Sources for this project are <a href="https://docs.google.com/document/d/1HnFw0jzqbATuoC08C1JimE7290BED2cMIvlgS3GZSbk/edit?usp=sharing">here</a></p>
+    </footer>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="/client.js"></script>
+
+  </body>
+</html>
